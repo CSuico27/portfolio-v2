@@ -100,37 +100,37 @@ const About = () => {
 
       {/* ── Intro ── */}
       <div ref={introRef} className='px-6 sm:px-16 py-20'>
-  <div className='flex flex-col items-center text-center max-w-2xl mx-auto gap-5'>
-    <span className='text-xs font-semibold tracking-widest text-[#749dbd] uppercase'>About me</span>
-    <h1 className='text-4xl md:text-5xl font-bold text-[#1e1e1e] font-inter leading-tight'>
-      Hi, I'm <span className='text-[#6c63ff]'>Cielo</span> —<br />Web Developer
-    </h1>
-    <p className='text-gray-500 text-base leading-relaxed'>
-      A web developer based in the Philippines who loves turning ideas into clean,
-      responsive, and user-friendly websites. Passionate about both frontend craft and backend logic.
-    </p>
-    <div className='flex flex-wrap gap-2 justify-center'>
-      {['Frontend', 'Backend', 'UI/UX Design'].map(tag => (
-        <span
-          key={tag}
-          className='px-4 py-2 rounded-full text-sm text-[#1e1e1e] border border-gray-200 bg-[#a8d2fa] hover:bg-[#75b9ec] duration-200 cursor-pointer'
-        >
-          {tag}
-        </span>
-      ))}
-    </div>
-    <a
-      href='/CieloMaeSuico_Resume.pdf'
-      download
-      className='inline-flex items-center gap-2 px-6 py-3 bg-[#1e1e1e] text-white text-sm font-medium rounded-full hover:bg-[#333] transition-colors duration-200'
-    >
-      <svg xmlns='http://www.w3.org/2000/svg' className='size-4' fill='none' viewBox='0 0 24 24' stroke='currentColor' strokeWidth={2}>
-        <path strokeLinecap='round' strokeLinejoin='round' d='M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4' />
-      </svg>
-      Download CV
-    </a>
-  </div>
-</div>
+        <div className='flex flex-col items-center text-center max-w-2xl mx-auto gap-5'>
+          <span className='text-xs font-semibold tracking-widest text-[#6c63ff] uppercase'>About me</span>
+          <h1 className='text-4xl md:text-5xl font-bold text-[#1e1e1e] font-inter leading-tight'>
+            Hi, I'm <span className='text-[#6c63ff]'>Cielo</span>
+          </h1>
+          <p className='text-gray-500 text-base leading-relaxed'>
+            A web developer based in the Philippines who loves turning ideas into clean,
+            responsive, and user-friendly websites. Passionate about both frontend craft and backend logic.
+          </p>
+          <div className='flex flex-wrap gap-2 justify-center'>
+            {['Frontend', 'Backend', 'UI/UX Design'].map(tag => (
+              <span
+                key={tag}
+                className='px-4 py-2 rounded-full text-sm text-[#1e1e1e] border border-gray-200 bg-[#a8d2fa] hover:bg-[#75b9ec] duration-200 cursor-pointer'
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+          <a
+            href='/CieloMaeSuico_Resume.pdf'
+            download
+            className='inline-flex items-center gap-2 px-6 py-3 bg-[#1e1e1e] text-white text-sm font-medium rounded-full hover:bg-[#333] transition-colors duration-200'
+          >
+            <svg xmlns='http://www.w3.org/2000/svg' className='size-4' fill='none' viewBox='0 0 24 24' stroke='currentColor' strokeWidth={2}>
+              <path strokeLinecap='round' strokeLinejoin='round' d='M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4' />
+            </svg>
+            Download CV
+          </a>
+        </div>
+      </div>
 
       {/* ── Divider ── */}
       <div className='px-6 sm:px-16'>
@@ -150,8 +150,33 @@ const About = () => {
           <div className='w-10 h-[3px] rounded-full bg-[#6c63ff] mt-1' />
         </div>
 
+        {/* Mobile: single column */}
+        <div className='lg:hidden flex flex-col max-w-lg mx-auto w-full gap-6 relative pl-14'>
+          {/* Left line */}
+          <div className='absolute top-0 bottom-0 left-5 w-[2px] rounded-full'
+            style={{ background: 'linear-gradient(to bottom, #6c63ff, #ec4899, #0ea5e9, transparent)' }}
+          />
+          {experiences.map((exp, i) => (
+            <div key={i} className='relative flex flex-col gap-1'>
+              {/* Dot */}
+              <div
+                className='absolute -left-9 top-1 w-8 h-8 rounded-full flex items-center justify-center border-4 border-[#f9f8fd]'
+                style={{ backgroundColor: exp.dotColor }}
+              >
+                <exp.icon className='w-3 h-3 text-white' />
+              </div>
+              {/* Period */}
+              <p className='text-xs font-semibold' style={{ color: exp.periodColor }}>
+                {exp.period} · {exp.duration}
+              </p>
+              {/* Card */}
+              <TimelineCard exp={exp} />
+            </div>
+          ))}
+        </div>
+
         {/* Alternating Timeline */}
-        <div className='relative max-w-5xl mx-auto'>
+        <div className='hidden lg:block relative max-w-5xl mx-auto'>
 
           {/* Vertical center line */}
           <div
@@ -230,7 +255,7 @@ const About = () => {
 /* ── Sub-components ── */
 
 const TimelineCard = ({ exp }) => (
-  <div className='w-full max-w-sm bg-white rounded-2xl border border-blue-100 shadow-sm p-5 hover:shadow-md transition-shadow duration-300'>
+  <div className='w-full bg-white rounded-2xl border border-blue-100 shadow-sm p-5 hover:shadow-md transition-shadow duration-300'>
     <div className='flex flex-wrap items-start justify-between gap-2 mb-1'>
       <h3 className='text-base font-bold text-[#1e1e1e]'>{exp.role}</h3>
       <span className={`text-[11px] font-semibold rounded-full px-3 py-1 ${exp.badgeStyle}`}>

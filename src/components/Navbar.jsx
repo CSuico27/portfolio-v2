@@ -169,11 +169,26 @@ const Navbar = () => {
     const toggleMenu = () => setMenuOpen(prev => !prev)
 
     return (
-        <>
+        <>  
+            {/* Logo — fixed independently */}
+            <a
+                href='#'
+                className={`fixed top-3 left-10 z-10 flex flex-row justify-center items-center cursor-pointer transition-all duration-300`}
+                onMouseEnter={handleHover}
+                onMouseLeave={handleMouseLeave}
+            >
+                <h1 className='text-2xl font-bold text-[#1e1e1e]'>ciel</h1>
+                <div className="relative h-4 w-4 flex justify-center items-center ml-0.5">
+                    <div className="absolute inset-0 bg-black rounded-lg rounded-tl-none rounded-br-none rotate-90 origin-center" />
+                    <span ref={starRef} className="relative inline-block text-white h-[12px] w-[12px]">
+                        <img src="/flower.png" alt="Star" />
+                    </span>
+                </div>
+            </a>
             <section className='fixed top-0 left-0 right-0 z-20 p-2 font-poppins'>
-                <div className='container mx-auto h-full flex items-center justify-between px-8'>
+                <div className='container mx-auto h-full flex items-center justify-end px-8'>
                     {/* Logo */}
-                    <a href='#' className='flex flex-row justify-center items-center cursor-pointer'
+                    {/* <a href='#' className='flex flex-row justify-center items-center cursor-pointer'
                         onMouseEnter={handleHover} onMouseLeave={handleMouseLeave}>
                         <h1 className='text-2xl font-bold text-[#1e1e1e]'>ciel</h1>
                         <div className="relative h-4 w-4 flex justify-center items-center ml-0.5">
@@ -182,10 +197,10 @@ const Navbar = () => {
                                 <img src="/flower.png" alt="Star" />
                             </span>
                         </div>
-                    </a>
+                    </a> */}
 
                     {/* Desktop nav */}
-                    <nav className='hidden md:block'>
+                    <nav className='hidden lg:block'>
                         <ul className='flex text-md space-x-4 gap-4 font-semibold'>
                             {navLinks.map(({ label, href }) => (
                                 <li key={href} className='mt-2'>
@@ -195,10 +210,10 @@ const Navbar = () => {
                         </ul>
                     </nav>
 
-                    {/* ✅ Hamburger button — mobile only */}
+                    {/* Hamburger button mobile */}
                     <button
                         onClick={toggleMenu}
-                        className='md:hidden flex flex-col justify-center items-center gap-1.5 w-8 h-8 z-30 relative'
+                        className='lg:hidden flex flex-col justify-center items-center gap-1.5 w-8 h-8 z-30 relative'
                         aria-label='Toggle menu'
                     >
                         <span className={`block h-0.5 w-6 bg-[#1e1e1e] transition-all duration-300 origin-center ${menuOpen ? 'rotate-45 translate-y-2' : ''}`} />
@@ -208,10 +223,10 @@ const Navbar = () => {
                 </div>
             </section>
 
-            {/* ✅ Mobile menu overlay */}
+            {/* Mobile menu overlay */}
             <div
                 ref={mobileMenuRef}
-                className='fixed top-0 right-0 h-full w-3/4 max-w-xs bg-white z-10 flex flex-col justify-center px-10 gap-8 shadow-2xl'
+                className='fixed top-0 right-0 h-full w-3/4 max-w-xs bg-white z-10 flex flex-col justify-center px-10 gap-8 shadow-2xl lg:hidden'
                 style={{ transform: 'translateX(100%)' }}
             >
                 {navLinks.map(({ label, href }, i) => (
@@ -233,7 +248,7 @@ const Navbar = () => {
 
             {menuOpen && (
                 <div
-                    className='fixed inset-0 bg-black/20 backdrop-blur-sm z-[9]'
+                    className='fixed inset-0 bg-black/20 backdrop-blur-sm z-[9] lg:hidden'
                     onClick={() => setMenuOpen(false)}
                 />
             )}

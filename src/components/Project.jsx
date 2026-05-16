@@ -14,7 +14,7 @@ const projects = [
     href: 'https://github.com/CSuico27/LawScheduler',
   },
   {
-    title: 'iLend',
+    title: 'iLEND',
     category: 'Loan & Application Management System',
     description: 'Streamlined loan processing and member management system for cooperative organizations.',
     image: '/ilend.png',
@@ -192,10 +192,10 @@ const Project = () => {
             <div
               key={project.title}
               ref={el => smallCardsRef.current[i] = el}
-              className='flex flex-col md:flex-row bg-white rounded-3xl overflow-hidden shadow-sm border border-blue-100 hover:shadow-md transition-shadow duration-300 min-h-[200px]'
+              className='flex flex-col lg:flex-row bg-white rounded-3xl overflow-hidden shadow-sm border border-blue-100 hover:shadow-md transition-shadow duration-300 min-h-[200px]'
             >
               {/* Left: info */}
-              <div className='flex flex-col justify-between gap-4 p-6 w-full md:w-[38%] shrink-0'>
+              <div className='flex flex-col justify-between gap-4 p-6 w-full lg:w-[38%] shrink-0'>
                 <div className='flex flex-col gap-3'>
                   <div className='flex items-center gap-2'>
                     <div className='w-9 h-9 rounded-xl flex items-center justify-center text-sm shrink-0'>

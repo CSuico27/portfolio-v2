@@ -47,7 +47,7 @@ const Hero = () => {
                 <img
                     src="/cieloenhanced-remove-bg-io.png"
                     alt="Cielo"
-                    className='relative z-10 max-w-[400px] object-contain'
+                    className='relative z-0 max-w-[400px] object-contain'
                 />
             </div>
 

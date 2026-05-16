@@ -120,7 +120,7 @@ const Contact = () => {
                 </svg>
 
                 {/* Heading content on top of the curve */}
-                <div ref={headingRef} className='relative z-10 flex flex-col items-center text-center gap-3 pt-16 pb-24 px-6'>
+                <div ref={headingRef} className='relative z-0 flex flex-col items-center text-center gap-3 pt-16 pb-24 px-6'>
                     <span className='inline-flex items-center gap-2 bg-[#eaf3de] text-[#3b6d11] text-xs font-semibold px-4 py-1.5 rounded-full'>
                         <span className='w-2 h-2 rounded-full bg-[#639922] animate-pulse inline-block' />
                         Available for commissions &amp; full-time work
