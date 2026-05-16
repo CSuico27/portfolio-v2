@@ -120,7 +120,7 @@ const About = () => {
       ))}
     </div>
     <a
-      href='/cielo-cv.pdf'
+      href='/CieloMaeSuico_Resume.pdf'
       download
       className='inline-flex items-center gap-2 px-6 py-3 bg-[#1e1e1e] text-white text-sm font-medium rounded-full hover:bg-[#333] transition-colors duration-200'
     >
